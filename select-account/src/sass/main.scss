@@ -1,0 +1,140 @@
+@import "reset";
+@import "variables";
+@import "mixins";
+
+body {
+  background-color: $grayish-blue;
+  line-height: 1.6;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  min-height: 100vh;
+  padding: 2.5em 0;
+  @include flexCenter;
+}
+
+section {
+  width: 90%;
+  max-width: 800px;
+  padding: 2em;
+  background-color: ghostwhite;
+  border-radius: 20px;
+
+  @include media(700px) {
+    padding: 5em;
+  }
+}
+
+.info-text {
+  padding: 0 0.5em;
+  text-align: center;
+  font-size: 0.8rem;
+
+  @include media(700px) {
+    padding: 0 4em;
+    font-size: 1.125rem;
+  }
+}
+
+.user-cards {
+  padding: 4em 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  @include media(700px) {
+    justify-content: space-around;
+  }
+  
+  > * {
+    height: 225px;
+    width: 200px;
+  }
+
+
+  &__card {
+    padding: 0.5em 1.5em;
+    margin: 0.25em;
+    border: 15px solid darken($grayish-blue, 5%);
+    border-radius: 10px;
+    text-align: center;
+    
+    > .name {
+      margin-top: 0.5em;
+      white-space: nowrap;
+      overflow: auto;
+    }
+
+    > .dots {
+      display: inline-block;
+      position: relative;
+      font-weight: 700;
+      font-size: 1.25rem;
+      cursor: pointer;
+
+      &:hover + .menu, &:focus + .menu {
+        transform: scaleY(1);
+      }
+    }
+
+    > .menu {
+      position: absolute;
+      background: #fff;
+      box-shadow: 0px 7px 20px 0px rgb(0 0 233 / 25%);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .25s;
+
+      &:hover, &:focus-within {
+        transform: scaleY(1);
+      }
+
+      > li {
+        padding: 1em;
+        text-align: left;
+        transition: background-color 0.5s;
+        cursor: pointer;
+
+        &:hover, &:focus {
+          background-color: darken($grayish-blue, 5%);
+        }
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #323223;
+        }
+      }
+    }
+  }
+
+  > div.btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > button.add-new {
+      height: $button-size;
+      width: $button-size;
+      font-size: 2rem;
+      border-radius: 50%;
+      color: darken($grayish-blue, 25%);
+      border: 1px solid darken($grayish-blue, 25%);
+      cursor: pointer;
+
+      &:focus {
+        border: none;
+        outline-offset: 4px;
+        outline-style: solid;
+        outline-color: coral;
+        outline-width: 4px;
+      }
+    }
+  } 
+}
+
+img {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}

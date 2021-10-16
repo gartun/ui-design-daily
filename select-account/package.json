@@ -1,0 +1,27 @@
+{
+  "name": "select-account",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "sass:c": "sass src/sass/main.scss src/styles.css --style=compressed --no-source-map",
+    "sass:w": "yarn sass:c --watch --style=expanded",
+    "pcss": "postcss --use autoprefixer cssnano -o dist/prefixed-styles.css src/styles.css",
+    "pcss:w": "yarn pcss --watch",
+    "css:dev": "concurrently --kill-others \"yarn pcss:w\" \"yarn sass:w\" ",
+    "css:build": "yarn sass:c && yarn pcss"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+
+  "dependencies": {
+    "autoprefixer": "^10.3.1",
+    "cssnano": "^5.0.8",
+    "postcss": "^8.3.6"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "postcss-cli": "^8.3.1"
+  }
+}

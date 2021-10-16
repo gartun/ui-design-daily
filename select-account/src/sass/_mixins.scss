@@ -1,0 +1,11 @@
+@mixin media($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
